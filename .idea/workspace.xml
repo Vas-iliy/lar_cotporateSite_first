@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d749a3f2-23a5-4d57-afe7-7141625eed41" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/MenusRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Repository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pink/navigation.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pink/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pink/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pink/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pink/layouts/site.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +202,7 @@
       <updated>1600377909796</updated>
       <workItem from="1600377912827" duration="6291000" />
       <workItem from="1600385483506" duration="441000" />
-      <workItem from="1600385937712" duration="5865000" />
+      <workItem from="1600385937712" duration="7065000" />
     </task>
     <servers />
   </component>

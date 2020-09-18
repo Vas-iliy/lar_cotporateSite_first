@@ -26,10 +26,10 @@ class SiteController extends Controller
         $this->m_rep = $m_rep;
     }
 
+    //пс смотри урок 5 начало
     protected function renderOutput() {
 
         $menu = $this->getMenu();
-        dd($menu);
 
         $navigation = view(env('THEME') . '.navigation')->render();
         $this->vars = Arr::add($this->vars, 'navigation', $navigation);
