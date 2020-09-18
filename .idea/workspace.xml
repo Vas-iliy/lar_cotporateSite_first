@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d749a3f2-23a5-4d57-afe7-7141625eed41" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/pink/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pink/layouts/site.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/MenusRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Repository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pink/navigation.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pink/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pink/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pink/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pink/layouts/site.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +184,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\server\OpenServer\domains\lar_corporateSite_first\public\pink" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -201,7 +207,7 @@
       <updated>1600377909796</updated>
       <workItem from="1600377912827" duration="6291000" />
       <workItem from="1600385483506" duration="441000" />
-      <workItem from="1600385937712" duration="2073000" />
+      <workItem from="1600385937712" duration="5865000" />
     </task>
     <servers />
   </component>
@@ -213,18 +219,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1600378147145" />
-    <state x="908" y="3" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600383020606">
+    <state x="908" y="3" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600442102095">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="908" y="3" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1600383020606" />
+    <state x="908" y="3" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1600442102095" />
+    <state x="913" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600442579046">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="913" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1600442579046" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1600378319053">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1600378319053" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1600387515462">
+    <state x="888" y="227" key="NewPhpClassDialog" timestamp="1600442152607">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1600387515462" />
+    <state x="888" y="227" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1600442152607" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1600441922323">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1600441922323" />
     <state x="649" y="302" width="322" height="233" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1600378165796">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\MenusRepository;
 use Illuminate\Http\Request;
 
 class IndexController extends SiteController
@@ -9,7 +10,7 @@ class IndexController extends SiteController
 
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
 
         $this->bar = 'right';
         $this->template = env('THEME') . '.index';
