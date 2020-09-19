@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\MenusRepository;
+use App\Repositories\PortfolioRepository;
 use App\Repositories\SlidersRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -11,11 +12,12 @@ use Illuminate\Support\Facades\Config;
 class IndexController extends SiteController
 {
 
-    public function __construct(SlidersRepository $s_rep)
+    public function __construct(SlidersRepository $s_rep, PortfolioRepository $p_rep)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
 
         $this->s_rep = $s_rep;
+        $this->p_rep = $p_rep;
 
         $this->bar = 'right';
         $this->template = env('THEME') . '.index';
@@ -29,6 +31,10 @@ class IndexController extends SiteController
      */
     public function index()
     {
+        $portfolios = $this->getPortfolio();
+        $content = view(env('THEME') . '.content', compact('portfolios'))->render();
+        $this->vars = Arr::add($this->vars, 'content', $content);
+
         $sliderItems = $this->getSliders();
 
         $sliders = view(env('THEME') . '.slider')->with('sliders', $sliderItems)->render();
@@ -49,6 +55,13 @@ class IndexController extends SiteController
         });
 
         return $sliders;
+    }
+
+    protected function getPortfolio()
+    {
+        $portfolio = $this->p_rep->get('*', Config::get('settings.home_port_count'));
+
+        return $portfolio;
     }
 
     /**
