@@ -25,7 +25,10 @@
     <!-- this line will appear only if the website is visited with an iPad -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes" />
 
-    <title>Pink Rio | A strong, powerful and multiporpose WordPress Theme</title>
+    <title>{{$title}}</title>
+
+    <meta name="description" content="{{isset($meta_desc) ? $meta_desc : ''}}">
+    <meta name="keywords" content="{{isset($keywords) ? $keywords : ''}}">
 
     <!-- [favicon] begin -->
     <link rel="shortcut icon" type="image/x-icon" href="{{asset(env('THEME'))}}/images/favicon.ico" />
@@ -96,7 +99,7 @@
 
                 <!-- START LOGO -->
                 <div id="logo" class="group">
-                    <a href="index.html" title="Pink Rio"><img src="images/logo.png" title="Pink Rio" alt="Pink Rio" /></a>
+                    <a href="index.html" title="Pink Rio"><img src="{{asset(env('THEME'))}}/images/logo.png" title="Pink Rio" alt="Pink Rio" /></a>
                 </div>
                 <!-- END LOGO -->
 
@@ -123,48 +126,13 @@
         <!-- START SLIDER -->
             @yield('slider')
         <!-- START PRIMARY -->
-        <div id="primary" class="sidebar-right">
+        <div id="primary" class="sidebar-{{isset($bar) ? $bar : 'no'}}">
             <div class="inner group">
                 <!-- START CONTENT -->
                     @yield('content')
                 <!-- END CONTENT -->
                 <!-- START SIDEBAR -->
-                <div class="sidebar group">
-
-                    <div class="widget-first widget recent-posts">
-                        <h3>From our blog</h3>
-                        <div class="recent-post group">
-                            <div class="hentry-post group">
-                                <div class="thumb-img"><img src="images/articles/001-55x55.png" alt="001" title="001" /></div>
-                                <div class="text">
-                                    <a href="article.html" title="Section shortcodes &amp; sticky posts!" class="title">Section shortcodes &amp; sticky posts!</a>
-                                    <p class="post-date">September 24, 2012</p>
-                                </div>
-                            </div>
-                            <div class="hentry-post group">
-                                <div class="thumb-img"><img src="images/articles/003-55x55.jpg" alt="003" title="003" /></div>
-                                <div class="text">
-                                    <a href="article.html" title="Nice &amp; Clean. The best for your blog!" class="title">Nice &amp; Clean. The best for your blog!</a>
-                                    <p class="post-date">September 24, 2012</p>
-                                </div>
-                            </div>
-                            <div class="hentry-post group">
-                                <div class="thumb-img"><img src="images/articles/0037-55x55.jpg" alt="0037" title="0037" /></div>
-                                <div class="text">
-                                    <a href="article.html" title="Another theme by YIThemes!" class="title">Another theme by YIThemes!</a>
-                                    <p class="post-date">September 24, 2012</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="widget-last widget text-image">
-                        <h3>Customer support</h3>
-                        <div class="text-image" style="text-align:left"><img src="images/callus.gif" alt="Customer support" /></div>
-                        <p>Proin porttitor dolor eu nibh lacinia at ultrices lorem venenatis. Sed volutpat scelerisque vulputate. </p>
-                    </div>
-
-                </div>
+                    @yield('bar')
                 <!-- END SIDEBAR -->
                 <!-- START EXTRA CONTENT -->
                 <!-- END EXTRA CONTENT -->
@@ -173,22 +141,7 @@
         <!-- END PRIMARY -->
 
         <!-- START COPYRIGHT -->
-        <div id="copyright">
-            <div class="inner group">
-                <div class="left">
-                    <a href="http://yithemes.com/?ddownload=2046&ap_id=pinkrio-html"><strong>Download the free version for Wordpress</strong></a>
-                </div>
-                <div class="right">
-                    <a href="#" class="socials-small facebook-small" title="Facebook">facebook</a>
-                    <a href="#" class="socials-small rss-small" title="Rss">rss</a>
-                    <a href="#" class="socials-small twitter-small" title="Twitter">twitter</a>
-                    <a href="#" class="socials-small flickr-small" title="Flickr">flickr</a>
-                    <a href="#" class="socials-small skype-small" title="Skype">skype</a>
-                    <a href="#" class="socials-small google-small" title="Google">google</a>
-                    <a href="#" class="socials-small pinterest-small" title="Pinterest">pinterest</a>
-                </div>
-            </div>
-        </div>
+            @yield('footer')
         <!-- END COPYRIGHT -->
     </div>
     <!-- END WRAPPER -->
