@@ -9,86 +9,41 @@
                     @if($k == 0)
                         <div class="hentry work group portfolio-sticky portfolio-full-description">
                             <div class="work-thumbnail">
-                                <a class="thumb"><img src="{{asset(env('THEME'))}}/images/projects/0081-385x192.jpg" alt="0081" title="0081" /></a>
+                                <a class="thumb"><img src="{{asset(env('THEME'))}}/images/projects/{{$portfolio->img->max}}" alt="0081" title="0081" /></a>
                                 <div class="work-overlay">
-                                    <h3><a href="#">{{$portfolio->title}}</a></h3>
-                                    <p class="work-overlay-categories"><img src="{{asset(env('THEME'))}}/images/categories.png" alt="Categories" /> in: <a href="category.html">Brand Identity</a>, <a href="category.html">Web Design</a></p>
+                                    <h3><a href="{{route('portfolios.show', ['alias' => $portfolio->alias])}}">{{$portfolio->title}}</a></h3>
+                                    <p class="work-overlay-categories"><img src="{{asset(env('THEME'))}}/images/categories.png" alt="Categories" /> in: <a href="#">{{$portfolio->filter->title}}</a>
                                 </div>
                             </div>
                             <div class="work-description">
-                                <h2><a href="project.html">{{$portfolio->title}}</a></h2>
+                                <h2><a href="{{route('portfolios.show', ['alias' => $portfolio->alias])}}">{{$portfolio->title}}</a></h2>
                                 <p class="work-categories">in: <a href="#">{{$portfolio->filter->title}}</a>
                                     <p>{{\Illuminate\Support\Str::limit($portfolio->text, 200)}}</p>
-                                    <a href="#" class="read-more">|| Read more</a>
+                                    <a href="{{route('portfolios.show', ['alias' => $portfolio->alias])}}" class="read-more">|| Read more</a>
                             </div>
                         </div>
                         <div class="clear"></div>
                         @continue
                     @endif
-                @endforeach
 
+                @if($k == 1)
                 <div class="portfolio-projects">
-
-                    <div class="related_project">
+                    @endif
+                    <div class="related_project {{($k == 4) ? ' related_project_last' : ''}}">
                         <div class="overlay_a related_img">
                             <div class="overlay_wrapper">
-                                <img src="images/projects/0061-175x175.jpg" alt="0061" title="0061" />
+                                <img src="{{asset(env('THEME'))}}/images/projects/{{$portfolio->img->mini}}" alt="0061" title="0061" />
                                 <div class="overlay">
-                                    <a class="overlay_img" href="images/projects/0061.jpg" rel="lightbox" title=""></a>
-                                    <a class="overlay_project" href="project.html"></a>
-                                    <span class="overlay_title">Love</span>
+                                    <a class="overlay_img" href="{{asset(env('THEME'))}}/images/projects/{{$portfolio->img->path}}" rel="lightbox" title=""></a>
+                                    <a class="overlay_project" href="{{route('portfolios.show', ['alias' => $portfolio->alias])}}"></a>
+                                    <span class="overlay_title">{{$portfolio->title}}</span>
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="project.html">Love</a></h4>
-                        <p>Nullam volutpat, mauris scelerisque iaculis semper, justo odio rutrum urna, [...]
+                        <h4><a href="{{route('portfolios.show', ['alias' => $portfolio->alias])}}">{{$portfolio->title}}</a></h4>
+                        <p>{{\Illuminate\Support\Str::limit($portfolio->text, 200)}}</p>
                     </div>
-
-                    <div class="related_project">
-                        <div class="overlay_a related_img">
-                            <div class="overlay_wrapper">
-                                <img src="images/projects/0071-175x175.jpg" alt="0071" title="0071" />
-                                <div class="overlay">
-                                    <a class="overlay_img" href="images/projects/0071.jpg" rel="lightbox" title=""></a>
-                                    <a class="overlay_project" href="project.html"></a>
-                                    <span class="overlay_title">Kineda</span>
-                                </div>
-                            </div>
-                        </div>
-                        <h4><a href="project.html">Kineda</a></h4>
-                        <p>Nullam volutpat, mauris scelerisque iaculis semper, justo odio rutrum urna, [...]
-                    </div>
-
-                    <div class="related_project">
-                        <div class="overlay_a related_img">
-                            <div class="overlay_wrapper">
-                                <img src="images/projects/009-175x175.jpg" alt="009" title="009" />
-                                <div class="overlay">
-                                    <a class="overlay_img" href="images/projects/009.jpg" rel="lightbox" title=""></a>
-                                    <a class="overlay_project" href="project.html"></a>
-                                    <span class="overlay_title">Guanacos</span>
-                                </div>
-                            </div>
-                        </div>
-                        <h4><a href="project.html">Guanacos</a></h4>
-                        <p>Nullam volutpat, mauris scelerisque iaculis semper, justo odio rutrum urna, [...]
-                    </div>
-
-                    <div class="related_project_last related_project">
-                        <div class="overlay_a related_img">
-                            <div class="overlay_wrapper">
-                                <img src="images/projects/0011-175x175.jpg" alt="0011" title="0011" />
-                                <div class="overlay">
-                                    <a class="overlay_img" href="images/projects/0011.jpg" rel="lightbox" title=""></a>
-                                    <a class="overlay_project" href="project.html"></a>
-                                    <span class="overlay_title">Miller Bob</span>
-                                </div>
-                            </div>
-                        </div>
-                        <h4><a href="project.html">Miller Bob</a></h4>
-                        <p>Nullam volutpat, mauris scelerisque iaculis semper, justo odio rutrum urna, [...]
-                    </div>
-
+                    @endforeach
                 </div>
             </div>
             <div class="clear"></div>
