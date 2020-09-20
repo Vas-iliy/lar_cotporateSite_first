@@ -6,6 +6,7 @@ use App\Repositories\ArticlesRepository;
 use App\Repositories\MenusRepository;
 use App\Repositories\PortfolioRepository;
 use App\Repositories\SlidersRepository;
+use App\Repositories\TextSliderRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Config;
@@ -13,13 +14,14 @@ use Illuminate\Support\Facades\Config;
 class IndexController extends SiteController
 {
 
-    public function __construct(SlidersRepository $s_rep, PortfolioRepository $p_rep, ArticlesRepository $a_rep)
+    public function __construct(SlidersRepository $s_rep, PortfolioRepository $p_rep, ArticlesRepository $a_rep, TextSliderRepository $text_s_rep)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
 
         $this->s_rep = $s_rep;
         $this->p_rep = $p_rep;
         $this->a_rep = $a_rep;
+        $this->text_s_rep = $text_s_rep;
 
         $this->bar = 'right';
         $this->template = env('THEME') . '.index';
@@ -41,8 +43,11 @@ class IndexController extends SiteController
         $sliders = view(env('THEME') . '.slider')->with('sliders', $sliderItems)->render();
         $this->vars = Arr::add($this->vars,'sliders', $sliders);
 
+        $contentSlider = $this->getTextSlider();
+        $text_slider = view(env('THEME') . '.text_slider', compact('contentSlider'))->render();
+
         $articles = $this->getArticles();
-        $this->contentRightBar = view(env('THEME') . '.indexBar', compact('articles'))->render();
+        $this->contentRightBar = view(env('THEME') . '.indexBar', compact(['articles', 'text_slider']))->render();
 
         $this->keywords = 'Home Page';
         $this->meta_desc = 'Home Page';
@@ -78,6 +83,16 @@ class IndexController extends SiteController
         $articles = $this->a_rep->get(['title', 'created_at', 'img', 'alias'], Config::get('settings.home_articles_count'));
 
         return $articles;
+    }
+
+    public function getTextSlider()
+    {
+        $textSlider = $this->text_s_rep->get();
+        if ($textSlider->isEmpty()) {
+            return false;
+        }
+
+        return $textSlider;
     }
 
     /**
