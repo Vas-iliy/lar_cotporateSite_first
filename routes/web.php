@@ -24,5 +24,7 @@ Route::resource('articles', 'ArticlesController')->parameters([
     'articles' => 'alias'
 ]);
 
+Route::get('articles/cat/{cat_alias?}', 'ArticlesController@index')->name('articlesCat');
+
 Auth::routes();
 

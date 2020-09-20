@@ -6,6 +6,7 @@ use App\Repositories\ArticlesRepository;
 use App\Repositories\PortfolioRepository;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\View\View;
 
 class ArticlesController extends SiteController
@@ -21,20 +22,24 @@ class ArticlesController extends SiteController
         $this->bar = 'right';
         $this->template = env('THEME') . '.articles';
     }
+
     /**
      * Display a listing of the resource.
      *
      * @return Factory|View
+     * @throws \Throwable
      */
     public function index()
     {
         $articles = $this->getArticles();
+        $content = view(env('THEME') . '.articles_content', compact('articles'))->render();
+        $this->vars = Arr::add($this->vars, 'content', $content);
 
         return $this->renderOutput();
     }
 
     protected function getArticles($alias = false) {
-        $articles = $this->a_rep->get(['title', 'alias', 'created_at', 'img', 'desc'], false, true);
+        $articles = $this->a_rep->get('*', false, true);
 
         if ($articles) {
             //$articles->load('user', 'category', 'comments');
