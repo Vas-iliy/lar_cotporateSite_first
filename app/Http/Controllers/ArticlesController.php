@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Repositories\ArticlesRepository;
 use App\Repositories\CommentsRepository;
 use App\Repositories\PortfolioRepository;
@@ -28,12 +29,13 @@ class ArticlesController extends SiteController
     /**
      * Display a listing of the resource.
      *
+     * @param bool $cat_alias
      * @return Factory|View
      * @throws \Throwable
      */
-    public function index()
+    public function index($cat_alias = false)
     {
-        $articles = $this->getArticles();
+        $articles = $this->getArticles($cat_alias);
         $content = view(env('THEME') . '.articles_content', compact('articles'))->render();
         $this->vars = Arr::add($this->vars, 'content', $content);
 
@@ -46,7 +48,15 @@ class ArticlesController extends SiteController
     }
 
     protected function getArticles($alias = false) {
-        $articles = $this->a_rep->get('*', false, true);
+
+        $where = false;
+
+        if ($alias) {
+            $id = Category::select('id')->where('alias', $alias)->first()->id;
+            $where = ['category_id', $id];
+        }
+
+        $articles = $this->a_rep->get('*', false, true, $where);
 
         if ($articles) {
             //подгружаем информацию по связаным моделям, исключая нагрузку на сервер
@@ -97,12 +107,22 @@ class ArticlesController extends SiteController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $alias
+     * @return Factory|View
      */
-    public function show($id)
+    public function show($alias)
     {
-        //
+        $article = $this->a_rep->one($alias, ['comments' => true]);
+        dd($article);
+        $content = view(env('THEME') . '.article_content', compact('article'))->render();
+        $this->vars = Arr::add($this->vars, 'content', $content);
+
+        $comments = $this->getComments(config('settings.recent_comments'));
+        $portfolios = $this->getPortfolios(config('settings.recent_portfolios'));
+        $this->contentRightBar = view(env('THEME') . '.articlesBar', compact(['comments', 'portfolios']))->render();
+
+
+        return $this->renderOutput();
     }
 
     /**
