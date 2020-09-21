@@ -49,7 +49,8 @@ class ArticlesController extends SiteController
         $articles = $this->a_rep->get('*', false, true);
 
         if ($articles) {
-            //$articles->load('user', 'category', 'comments');
+            //подгружаем информацию по связаным моделям, исключая нагрузку на сервер
+            $articles->load('user', 'category', 'comments');
         }
 
         return $articles;
@@ -57,6 +58,11 @@ class ArticlesController extends SiteController
 
     protected function getComments($take) {
         $comments = $this->c_rep->get('*', $take);
+
+        if ($comments) {
+            //подгружаем информацию по связаным моделям, исключая нагрузку на сервер
+            $comments->load('article', 'user');
+        }
 
         return $comments;
     }

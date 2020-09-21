@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -30,6 +31,10 @@ class AppServiceProvider extends ServiceProvider
             list($name, $val) = explode(',', $like);
 
             return "<?php $name = $val?>";
+        });
+
+        DB::listen(function ($query) {
+            //echo '<h2>' . $query->sql . '</h2>';
         });
     }
 }

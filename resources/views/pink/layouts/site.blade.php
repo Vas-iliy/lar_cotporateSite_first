@@ -25,7 +25,7 @@
     <!-- this line will appear only if the website is visited with an iPad -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes" />
 
-    <title>{{$title}}</title>
+    <title>{{$title ? $title : 'Pink'}}</title>
 
     <meta name="description" content="{{isset($meta_desc) ? $meta_desc : ''}}">
     <meta name="keywords" content="{{isset($keywords) ? $keywords : ''}}">
@@ -84,7 +84,7 @@
 <!-- END HEAD -->
 
 <!-- START BODY -->
-<body class="no_js responsive page-template-home-php stretched">
+<body class="no_js responsive {{\Illuminate\Support\Facades\Route::currentRouteName() == 'home' ? 'page-template-home-php' : ''}} stretched">
 
 <!-- START BG SHADOW -->
 <div class="bg-shadow">

@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d749a3f2-23a5-4d57-afe7-7141625eed41" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/CommentsRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pink/articlesBar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ArticlesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ArticlesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ru/ru.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/ru.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pink/articles.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pink/articles.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pink/articlesBar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pink/articlesBar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pink/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pink/layouts/site.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,13 +46,6 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="lar_corporatesite_first: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="lar_corporatesite_first: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="portfolios: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -219,7 +210,7 @@
       <workItem from="1600377912827" duration="6291000" />
       <workItem from="1600385483506" duration="441000" />
       <workItem from="1600385937712" duration="8285000" />
-      <workItem from="1600445854028" duration="39240000" />
+      <workItem from="1600445854028" duration="41553000" />
     </task>
     <servers />
   </component>
