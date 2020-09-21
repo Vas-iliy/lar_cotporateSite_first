@@ -8,9 +8,9 @@
     {!! $content !!}
 @endsection
 
-{{--@section('bar')
-    {!! $rightBar or !!}
-@endsection--}}
+@section('bar')
+    {!! $rightBar !!}
+@endsection
 
 @section('footer')
     {!! $footer !!}

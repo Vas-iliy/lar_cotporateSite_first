@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\ArticlesRepository;
+use App\Repositories\CommentsRepository;
 use App\Repositories\PortfolioRepository;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
@@ -12,12 +13,13 @@ use Illuminate\View\View;
 class ArticlesController extends SiteController
 {
 
-    public function __construct(PortfolioRepository $p_rep, ArticlesRepository $a_rep)
+    public function __construct(PortfolioRepository $p_rep, ArticlesRepository $a_rep, CommentsRepository $c_rep)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
 
         $this->p_rep = $p_rep;
         $this->a_rep = $a_rep;
+        $this->c_rep = $c_rep;
 
         $this->bar = 'right';
         $this->template = env('THEME') . '.articles';
@@ -35,6 +37,11 @@ class ArticlesController extends SiteController
         $content = view(env('THEME') . '.articles_content', compact('articles'))->render();
         $this->vars = Arr::add($this->vars, 'content', $content);
 
+        $comments = $this->getComments(config('settings.recent_comments'));
+        $portfolios = $this->getPortfolios(config('settings.recent_portfolios'));
+        $this->contentRightBar = view(env('THEME') . '.articlesBar', compact(['comments', 'portfolios']))->render();
+
+
         return $this->renderOutput();
     }
 
@@ -46,6 +53,18 @@ class ArticlesController extends SiteController
         }
 
         return $articles;
+    }
+
+    protected function getComments($take) {
+        $comments = $this->c_rep->get('*', $take);
+
+        return $comments;
+    }
+
+    protected function getPortfolios($take) {
+        $portfolios = $this->p_rep->get('*', $take);
+
+        return $portfolios;
     }
 
     /**
