@@ -113,7 +113,9 @@ class ArticlesController extends SiteController
     public function show($alias)
     {
         $article = $this->a_rep->one($alias, ['comments' => true]);
-        dd($article);
+        if ($article) {
+            $article->img = json_decode($article->img);
+        }
         $content = view(env('THEME') . '.article_content', compact('article'))->render();
         $this->vars = Arr::add($this->vars, 'content', $content);
 
