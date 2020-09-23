@@ -22,9 +22,11 @@ Route::resource('portfolios', 'PortfolioController')->parameters([
 
 Route::resource('articles', 'ArticlesController')->parameters([
     'articles' => 'alias'
-]);
+])->only(['index', 'show']);
 
 Route::get('articles/cat/{cat_alias?}', 'ArticlesController@index')->name('articlesCat');
+
+Route::resource('comments', 'CommentsController')->only(['store']);
 
 Auth::routes();
 

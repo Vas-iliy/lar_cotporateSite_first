@@ -42,17 +42,18 @@
             <span>{{count($article->comments) ? count($article->comments) : '0'}}</span> {{\Illuminate\Support\Facades\Lang::choice('ru.comments', count($article->comments))}}
         </h3>
 
-        @set($com, $article->comments->groupBy("parent_id"))
+        @if(count($article->comments) > 0)
+       `    @set($com, $article->comments->groupBy("parent_id"))
+            <ol class="commentlist group">
+                @foreach($com as $k => $comments)
+                    @if($k !== 0)
+                        @break
+                    @endif
 
-        <ol class="commentlist group">
-            @foreach($com as $k => $comments)
-                @if($k !== 0)
-                    @break
-                @endif
-
-                @include(env('THEME') . '.comment', ['items' => $comments])
-            @endforeach
-        </ol>
+                    @include(env('THEME') . '.comment', ['items' => $comments])
+                @endforeach
+            </ol>`
+        @endif
 
         <!-- START TRACKBACK & PINGBACK -->
         <h2 id="trackbacks">Trackbacks and pingbacks</h2>
@@ -62,13 +63,18 @@
         <!-- END TRACKBACK & PINGBACK -->
         <div id="respond">
             <h3 id="reply-title">Leave a <span>Reply</span> <small><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">Cancel reply</a></small></h3>
-            <form action="sendmail.PHP" method="post" id="commentform">
-                <p class="comment-form-author"><label for="author">Name</label> <input id="author" name="author" type="text" value="" size="30" aria-required="true" /></p>
-                <p class="comment-form-email"><label for="email">Email</label> <input id="email" name="email" type="text" value="" size="30" aria-required="true" /></p>
-                <p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30" /></p>
-                <p class="comment-form-comment"><label for="comment">Your comment</label><textarea id="comment" name="comment" cols="45" rows="8"></textarea></p>
+            <form action="{{route('comments.store')}}" method="post" id="commentform">
+                @csrf
+                @if(!\Illuminate\Support\Facades\Auth::check())
+                    <p class="comment-form-author"><label for="name">Name</label> <input id="name" name="name" type="text" value="" size="30" aria-required="true" /></p>
+                    <p class="comment-form-email"><label for="email">Email</label> <input id="email" name="email" type="text" value="" size="30" aria-required="true" /></p>
+                    <p class="comment-form-url"><label for="site">Website</label><input id="site" name="site" type="text" value="" size="30" /></p>
+                @endif
+                <p class="comment-form-comment"><label for="comment">Your comment</label><textarea id="text" name="text" cols="45" rows="8"></textarea></p>
                 <div class="clear"></div>
                 <p class="form-submit">
+                    <input id="comment_post_ID" type="hidden" name="comment_post_ID" value="{{$article->id}}">
+                    <input id="comment_parent" type="hidden" name="comment_parent" value="0">
                     <input name="submit" type="submit" id="submit" value="Post Comment" />
                 </p>
             </form>
