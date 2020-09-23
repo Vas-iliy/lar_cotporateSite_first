@@ -26,7 +26,7 @@ Route::resource('articles', 'ArticlesController')->parameters([
 
 Route::get('articles/cat/{cat_alias?}', 'ArticlesController@index')->name('articlesCat');
 
-Route::resource('comments', 'CommentsController')->only(['store']);
+Route::resource('comments', 'CommentsController');
 
 Auth::routes();
 

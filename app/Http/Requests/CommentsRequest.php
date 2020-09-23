@@ -2,12 +2,15 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 
 class CommentsRequest extends FormRequest
 {
+    public $errorBag;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -38,4 +41,13 @@ class CommentsRequest extends FormRequest
 
         return $atr;
     }
+
+    public function messages() {
+        return [
+            'email' => 'Поле :attribute должно соответствовать Email адресу',
+            'required' => 'Поле :attribute обязательно к заполнению',
+        ];
+    }
+
+
 }

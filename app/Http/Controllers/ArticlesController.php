@@ -36,6 +36,14 @@ class ArticlesController extends SiteController
     public function index($cat_alias = false)
     {
         $articles = $this->getArticles($cat_alias);
+
+        /*if ($cat_alias) {
+            $this->title = $articles->category()->title;
+        }*/
+
+        $this->keywords = 'String';
+        $this->meta_desc = 'String';
+
         $content = view(env('THEME') . '.articles_content', compact('articles'))->render();
         $this->vars = Arr::add($this->vars, 'content', $content);
 
@@ -116,6 +124,11 @@ class ArticlesController extends SiteController
         if ($article) {
             $article->img = json_decode($article->img);
         }
+
+        $this->title = $article->title;
+        $this->keywords = $article->keywords;
+        $this->meta_desc = $article->meta_desc;
+
         $content = view(env('THEME') . '.article_content', compact('article'))->render();
         $this->vars = Arr::add($this->vars, 'content', $content);
 
