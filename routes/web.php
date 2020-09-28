@@ -24,7 +24,9 @@ Route::resource('articles', 'ArticlesController')->parameters([
     'articles' => 'alias'
 ])->only(['index', 'show']);
 
-Route::get('articles/cat/{cat_alias?}', 'ArticlesController@index')->name('articlesCat');
+Route::get('articles/cat/{cat_alias?}', 'ArticlesController@index')
+    ->name('articlesCat')
+    ->where('cat_alias', '[\w-]+');
 
 Route::resource('comments', 'CommentsController');
 
