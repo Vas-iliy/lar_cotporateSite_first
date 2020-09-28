@@ -15,6 +15,11 @@ class ArticlesRepository extends Repository
 
     public function one($alias, $atr = []) {
         $article = parent::one($alias, $atr );
+
+        if ($article) {
+            $article->img = json_decode($article->img);
+        }
+
         if ($article && !empty($atr)) {
             $article->load('comments');
             $article->comments->load('user');

@@ -38,8 +38,8 @@ class PortfolioController extends SiteController
         return $this->renderOutput();
     }
 
-    protected function getPortfolios() {
-        $portfolios = $this->p_rep->get('*', false, true);
+    protected function getPortfolios($take = false, $paginate = true) {
+        $portfolios = $this->p_rep->get('*', $take, $paginate);
         if ($portfolios) {
             $portfolios->load('filter');
         }
@@ -71,12 +71,25 @@ class PortfolioController extends SiteController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $alias
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Throwable
      */
-    public function show($id)
+    public function show($alias)
     {
-        //
+        $portfolio = $this->p_rep->one($alias);
+
+        $portfolios = $this->getPortfolios(config('settings.other_portfolios'), false);
+
+        $this->title = $portfolio->title;
+        $this->keywords = $portfolio->keywords;
+        $this->meta_desc = $portfolio->meta_desc;
+
+
+        $content = view(env('THEME') . '.portfolio_content', compact(['portfolio', 'portfolios']))->render();
+        $this->vars = Arr::add($this->vars, 'content', $content);
+
+        return $this->renderOutput();
     }
 
     /**

@@ -121,9 +121,6 @@ class ArticlesController extends SiteController
     public function show($alias)
     {
         $article = $this->a_rep->one($alias, ['comments' => true]);
-        if ($article) {
-            $article->img = json_decode($article->img);
-        }
 
         $this->title = $article->title;
         $this->keywords = $article->keywords;

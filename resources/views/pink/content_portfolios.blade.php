@@ -16,7 +16,7 @@
                         </div>
                         <div class="work-description">
                             <h3>{{$portfolio->title}}</h3>
-                            <p>{{$portfolio->text}}</p>
+                            <p>{{\Illuminate\Support\Str::limit($portfolio->text, 100)}}</p>
                             <div class="clear"></div>
                             <div class="work-skillsdate">
                                 <p class="skills"><span class="label">Filter:</span> {{$portfolio->filter->title}}</p>
