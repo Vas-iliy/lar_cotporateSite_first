@@ -30,10 +30,21 @@ class PortfolioController extends SiteController
         $this->keywords = 'Портволио';
         $this->meta_desc = 'Портволио';
 
-        $content = view(env('THEME') . '.content_portfolios')->render();
+        $portfolios = $this->getPortfolios();
+
+        $content = view(env('THEME') . '.content_portfolios', compact('portfolios'))->render();
         $this->vars = Arr::add($this->vars, 'content', $content);
 
         return $this->renderOutput();
+    }
+
+    protected function getPortfolios() {
+        $portfolios = $this->p_rep->get('*', false, true);
+        if ($portfolios) {
+            $portfolios->load('filter');
+        }
+
+        return $portfolios;
     }
 
     /**
