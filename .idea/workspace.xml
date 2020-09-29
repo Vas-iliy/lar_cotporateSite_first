@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d749a3f2-23a5-4d57-afe7-7141625eed41" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/pink/contact.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pink/contact_bar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pink/contact_content.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pink/email.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pink/leftBar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PortfolioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PortfolioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CommentsRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pink/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pink/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pink/contact_bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pink/contact_bar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pink/contact_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pink/contact_content.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pink/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pink/layouts/site.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,13 +51,6 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="lar_corporatesite_first: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="lar_corporatesite_first: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="portfolios: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -195,7 +193,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/pink/css" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -206,9 +204,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\server\OpenServer\domains\lar_corporateSite_first\public\pink\css" />
       <recent name="D:\server\OpenServer\domains\lar_corporateSite_first\resources\lang\ru" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\server\OpenServer\domains\lar_corporateSite_first\resources\views\pink" />
       <recent name="D:\server\OpenServer\domains\lar_corporateSite_first\public\pink" />
     </key>
   </component>
@@ -235,7 +235,8 @@
       <workItem from="1600803426029" duration="27820000" />
       <workItem from="1600901492313" duration="1908000" />
       <workItem from="1600903731563" duration="1004000" />
-      <workItem from="1601303184523" duration="10140000" />
+      <workItem from="1601303184523" duration="11638000" />
+      <workItem from="1601413226382" duration="5417000" />
     </task>
     <servers />
   </component>
@@ -251,22 +252,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="908" y="3" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1600700036597" />
-    <state x="913" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601305099827">
+    <state x="913" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601415451753">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="913" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1601305099827" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1600903412754">
+    <state x="913" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1601415451753" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1601417632228">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1600903412754" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1601417632228" />
     <state x="888" y="227" key="NewPhpClassDialog" timestamp="1600878633878">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="888" y="227" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1600878633878" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1601315080416">
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1601418007028">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1601315080416" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1601418007028" />
     <state x="649" y="302" width="322" height="233" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1600378165796">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -283,6 +284,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="849" y="239" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1601303182603" />
+    <state x="510" y="46" key="refactoring.ChangeSignatureDialog" timestamp="1601417891622">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="510" y="46" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1601417891622" />
     <state x="834" y="72" width="672" height="676" key="search.everywhere.popup" timestamp="1601305123480">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

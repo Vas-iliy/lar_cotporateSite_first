@@ -19,6 +19,8 @@ class SiteController extends Controller
     protected $meta_desc;
     protected $title;
 
+    protected $descr;
+
     protected $template;
     protected $vars = [];
 
@@ -45,7 +47,14 @@ class SiteController extends Controller
             $this->vars = Arr::add($this->vars, 'rightBar', $rightBar);
         }
 
+        if ($this->contentLefttBar) {
+            $leftBar = view(env('THEME') . '.leftBar')->with('contentLeftBar', $this->contentLefttBar)->render();
+            $this->vars = Arr::add($this->vars, 'leftBar', $leftBar);
+        }
+
         $this->vars = Arr::add($this->vars, 'bar', $this->bar);
+
+        $this->vars = Arr::add($this->vars, 'descr', $this->descr);
 
         $this->vars = Arr::add($this->vars, 'keywords', $this->keywords);
         $this->vars = Arr::add($this->vars, 'meta_desc', $this->meta_desc);

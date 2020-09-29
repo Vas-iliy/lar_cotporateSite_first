@@ -134,14 +134,30 @@
             {{--при отправке формы--}}
             <div class="wrap_result"></div>
 
-        @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'portfolios.index' )
+        @if(count($errors) > 0)
+        <div style="background-color:red; text-align: center;" >
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li style="list-style-type: none"><h3>{{$error}}</h3></li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        @if(session('status'))
+            <div class="box success-box">
+                {{session('status')}}
+            </div>
+        @endif
+
+        @if(isset($descr))
             <div id="page-meta">
                 <div class="inner group">
-                    <h3>Welcome to my portfolio page</h3>
-                    <h4>... i hope you enjoy my works</h4>
+                    {!! $descr !!}
                 </div>
             </div>
         @endif
+
 
         <!-- START PRIMARY -->
         <div id="primary" class="sidebar-{{isset($bar) ? $bar : 'no'}}">

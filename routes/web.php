@@ -30,5 +30,8 @@ Route::get('articles/cat/{cat_alias?}', 'ArticlesController@index')
 
 Route::resource('comments', 'CommentsController');
 
+Route::get('/contacts', 'ContactsController@index')->name('contacts');
+Route::post('/contacts', 'ContactsController@input');
+
 Auth::routes();
 

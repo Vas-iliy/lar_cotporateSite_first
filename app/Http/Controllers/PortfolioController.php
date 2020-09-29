@@ -16,6 +16,9 @@ class PortfolioController extends SiteController
         $this->p_rep = $p_rep;
 
         $this->template = env('THEME') . '.portfolios';
+
+        $this->descr = '<h3>Welcome to my portfolio page</h3>
+                    <h4>... i hope you enjoy my works</h4>';
     }
 
     /**
