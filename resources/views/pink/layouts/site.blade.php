@@ -134,7 +134,7 @@
             {{--при отправке формы--}}
             <div class="wrap_result"></div>
 
-        @if(count($errors) > 0)
+        @if(isset($errors))
         <div style="background-color:red; text-align: center;" >
             <ul>
                 @foreach($errors->all() as $error)
