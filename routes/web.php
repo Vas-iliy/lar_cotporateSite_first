@@ -33,5 +33,8 @@ Route::resource('comments', 'CommentsController');
 Route::get('/contacts', 'ContactsController@index')->name('contacts');
 Route::post('/contacts', 'ContactsController@input');
 
-Auth::routes();
+//Auth
+Route::get('login', 'Auth\LoginController@showLoginForm');
+Route::post('login', 'Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout');
 
