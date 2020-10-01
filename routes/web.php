@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/', 'IndexController')->only(['index'])->names(['index' => 'home']);
+Route::get('/', 'IndexController@index')->name('home');
 
 Route::resource('portfolios', 'PortfolioController')->parameters([
     'portfolios' => 'alias'
-]);
+])->only(['index', 'show']);
 
 Route::resource('articles', 'ArticlesController')->parameters([
     'articles' => 'alias'

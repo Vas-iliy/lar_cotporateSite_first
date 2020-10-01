@@ -14,26 +14,6 @@ use Illuminate\Support\Facades\Response;
 class CommentsController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -63,21 +43,24 @@ class CommentsController extends Controller
             return Response::json(['error' => $validator->errors()->all()]);
         }
 
-
         $user = Auth::user();
+
         $comment = new Comment($data);
+
 
         if ($user) {
             $comment->user_id = $user->id;
+            $comment->name = ''; $comment->site = ''; $comment->email = '';
         }
+
+        $comment->load('user');
+
+        $data['id'] = $comment->id;
+        $data['email'] = (!empty($data['email'])) ? $data['email'] : $comment->user->email;
+        $data['name'] = (!empty($data['name'])) ? $data['name'] : $comment->user->name;
 
         $post = Article::find($data['article_id']);
         $post->comments()->save($comment);
-
-        $comment->load('user');
-        $data['id'] = $comment->id;
-        $data['email'] = (!empty($data['email'])) ? $data['email'] : $comment->user->email;
-        $data['name'] = (!empty($data['name'])) ? $data['name'] : $comment->user->email;
 
         $data['hash'] = md5($data['email']);
 
@@ -85,50 +68,5 @@ class CommentsController extends Controller
 
         return Response::json(['success' => true, 'comment' => $view_comment, 'data' => $data]);
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
