@@ -38,9 +38,10 @@ Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout');
 
-Route::middleware('auth')->prefix('admin')->group(function () {
+Route::middleware('auth')->prefix('admin/')->group( function () {
     Route::get('/', 'Admin\IndexController@index')->name('adminIndex');
 
-    Route::resource('/articles', 'Admin\ArticlesController');
+    Route::resource('/article', 'Admin\ArticlesController');
 });
 
+Route::resource('pif', 'PifController');
