@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,22 +19,10 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-
-            $this->user = Auth::user();
+            $this->user= Auth::user();
 
             return $next($request);
         });
-
-        if (!$this->user) {
-            abort(403);
-        }
-
-
-        /*$this->user = Auth::user();
-        dd($this->user);
-        if (!$this->user) {
-            abort(403);
-        }*/
     }
 
     public function renderOutput() {
