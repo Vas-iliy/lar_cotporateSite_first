@@ -15,7 +15,6 @@ class CreatePermissionRoleTable extends Migration
     {
         Schema::create('permission_role', function (Blueprint $table) {
             $table->id();
-
             $table->timestamps();
         });
     }

@@ -18,8 +18,7 @@ class ChangePermissionRoleTable extends Migration
             $table->foreign('role_id')->references('id')->on('roles');
 
             $table->bigInteger('permission_id')->unsigned()->default(1);
-            $table->foreign('permission_id')->references('id')->on('users');
-
+            $table->foreign('permission_id')->references('id')->on('permissions');
         });
     }
 
