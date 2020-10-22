@@ -41,7 +41,7 @@
                 </table>
             </div>
         </div>
-        <form action="{{route('article.create')}}" method="post">
+        <form action="{{route('article.create')}}" method="get">
             @csrf
             <button class="btn btn-panuu-5" type="submit">Добавить материал</button>
         </form>
