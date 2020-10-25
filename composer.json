@@ -15,7 +15,8 @@
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
-        "lavary/laravel-menu": "^1.7"
+        "lavary/laravel-menu": "^1.7",
+        "intervention/image" : "2.*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

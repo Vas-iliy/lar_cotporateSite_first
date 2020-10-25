@@ -6,6 +6,8 @@ namespace App\Repositories;
 
 use App\Article;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class ArticlesRepository extends Repository
 {
@@ -38,10 +40,40 @@ class ArticlesRepository extends Repository
         if (empty($data)) {
             return ['error' => 'Нет данных'];
         }
-
         if (empty($data['alias'])) {
             $data['alias'] = $this->transliterate($data['title']);
-            dd($data);
+        }
+        if ($this->one($data['alias'], false)) {
+            $request->merge(['alias' => $data['alias']]);
+            $request->flash();
+
+            return ['error' => 'Данный псевдоним уже используется'];
+        }
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+
+            if ($image->isValid()) {
+                $str = Str::random(8);
+                $obj = new \stdClass();
+
+                $obj->mini = $str . '_mini.jpg';
+                $obj->max = $str . '_max.jpg';
+                $obj->path = $str . '.jpg';
+
+                $img = Image::make($image);
+                $img->fit(config('settings.image')['width'], config('settings.image')['height'])
+                    ->save(public_path() . '/' . env('THEME') . '/images/articles/' . $obj->path);
+                $img->fit(config('settings.articles_img')['max']['width'], config('settings.articles_img')['max']['height'])
+                    ->save(public_path() . '/' . env('THEME') . '/images/articles/' . $obj->max);
+                $img->fit(config('settings.articles_img')['mini']['width'], config('settings.articles_img')['mini']['height'])
+                    ->save(public_path() . '/' . env('THEME') . '/images/articles/' . $obj->mini);
+
+                $data['img'] = json_encode($obj);
+                $this->model->fill($data);
+                if ($request->user()->articles()->save($this->model)) {
+                    return ['status' => 'Материал успешно добавлен'];
+                }
+            }
         }
 
     }
