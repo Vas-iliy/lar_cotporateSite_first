@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d749a3f2-23a5-4d57-afe7-7141625eed41" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/CategoriesRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pink/admin/articles_create_content.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticlesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticlesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pink/admin/articles_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pink/admin/articles_content.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +183,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lar_lendingPage_first" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -250,7 +244,11 @@
       <workItem from="1603229001723" duration="4095000" />
       <workItem from="1603292726751" duration="266000" />
       <workItem from="1603309196302" duration="1627000" />
-      <workItem from="1603312914456" duration="8608000" />
+      <workItem from="1603312914456" duration="8664000" />
+      <workItem from="1603344118769" duration="1486000" />
+      <workItem from="1603345694962" duration="25000" />
+      <workItem from="1603345923705" duration="1424000" />
+      <workItem from="1603592953162" duration="2000" />
     </task>
     <servers />
   </component>
@@ -270,10 +268,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="913" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1601921825826" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1603334009732">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1603347753734">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603334009732" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603347753734" />
     <state x="888" y="227" key="NewPhpClassDialog" timestamp="1600878633878">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
