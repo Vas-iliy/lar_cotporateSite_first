@@ -118,23 +118,35 @@ class ArticlesController extends AdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param ArticleRequest $request
+     * @param Article $article
+     * @return void
      */
-    public function update(Request $request, $id)
+    public function update(ArticleRequest $request, Article $article)
     {
-        //
+        $result = $this->a_rep->updateArticle($request, $article);
+        if (is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+        else {
+            return redirect('/admin')->with($result);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Article $article
+     * @return void
      */
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        //
+        $result = $this->a_rep->deleteArticle($article);
+        if (is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+        else {
+            return redirect('/admin')->with($result);
+        }
     }
 }
