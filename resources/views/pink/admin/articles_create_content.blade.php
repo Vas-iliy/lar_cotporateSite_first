@@ -1,6 +1,6 @@
 <div id="content-page" class="content group">
     <div class="hentry group">
-        <form action="{{isset($article->id) ? route('article.update'. ['article' => $article->id]) : route('article.store')}}" class="contact-form" method="post" enctype="multipart/form-data">
+        <form action="{{(isset($article->id)) ? route('article.update', ['article' => $article->alias]) : route('article.store')}}" class="contact-form" method="post" enctype="multipart/form-data">
             @csrf
             @if(isset($article->id))
                 @method('put')
@@ -78,7 +78,7 @@
                             <span class="label">Изображение материала:</span>
                             <br/>
                         </label>
-                        <img src="{{asset(env('THEME'))}}/images/artocles/{{$article->img}}" alt="">
+                        <img src="{{asset(env('THEME'))}}/images/articles/{{$article->img->path}}" alt="">
                         <input type="hidden" name="old_image" value="{{$article->img->path}}">
                     </li>
                 @endif

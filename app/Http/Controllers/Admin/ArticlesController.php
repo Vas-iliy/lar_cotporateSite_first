@@ -71,7 +71,7 @@ class ArticlesController extends AdminController
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|void
      */
     public function store(ArticleRequest $request)
     {
@@ -98,12 +98,21 @@ class ArticlesController extends AdminController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Article $alias
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(Article $article)
     {
-        //
+        if (Gate::denies('edit', new Article())) {
+            abort(403);
+        }
+
+        $article->img = json_decode($article->img);
+        $categories = $this->getCategories();
+        $this->title = 'Редактирование материала -' . $article->title;
+        $this->content = view(env('THEME') . '.admin.articles_create_content', compact(['categories', 'article']))->render();
+
+        return $this->renderOutput();
     }
 
     /**

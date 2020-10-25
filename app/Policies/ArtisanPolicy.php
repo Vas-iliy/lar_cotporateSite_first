@@ -22,4 +22,8 @@ class ArtisanPolicy
     public function save(User $user) {
         return $user->canDo('add_articles');
     }
+
+    public function edit(User $user) {
+        return $user->canDo('update_articles');
+    }
 }
