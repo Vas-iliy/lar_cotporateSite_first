@@ -40,9 +40,8 @@ Route::get('logout', 'Auth\LoginController@logout');
 
 Route::middleware('auth')->prefix('admin/')->group( function () {
     Route::get('/', 'Admin\IndexController@index')->name('adminIndex');
-
     Route::resource('/article', 'Admin\ArticlesController');
     Route::resource('/permissions', 'Admin\PermissionsController');
+    Route::resource('/menus', 'Admin\MenusController');
 });
 
-Route::resource('pif', 'PifController');

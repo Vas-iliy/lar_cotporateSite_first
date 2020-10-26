@@ -47,7 +47,7 @@ class AdminController extends Controller
         return \Menu::make('adminMenu', function ($menu) {
             $menu->add('Статьи', ['route' => 'article.index']);
             $menu->add('Портволио', ['route' => 'article.index']);
-            $menu->add('Меню', ['route' => 'article.index']);
+            $menu->add('Меню', ['route' => 'menus.index']);
             $menu->add('Пользователи', ['route' => 'article.index']);
             $menu->add('Привелегии', ['route' => 'permissions.index']);
         });
