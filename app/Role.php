@@ -35,4 +35,14 @@ class Role extends Model
             }
         }
     }
+
+    public function savePermissions($inputPermissions) {
+        if (!empty($inputPermissions)) {
+            $this->permissions()->sync($inputPermissions);
+        }
+        else {
+            $this->permissions()->detach();
+        }
+        return true;
+    }
 }

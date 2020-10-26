@@ -6,7 +6,7 @@ use App\Article;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ArtisanPolicy
+class ArticlePolicy
 {
     use HandlesAuthorization;
 

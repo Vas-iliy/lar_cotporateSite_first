@@ -52,24 +52,20 @@ class PermissionsController extends AdminController
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $result = $this->per_rep->changePermissions($request);
+
+        if (is_array($request) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+
+        return back()->with($result);
     }
 
     /**
