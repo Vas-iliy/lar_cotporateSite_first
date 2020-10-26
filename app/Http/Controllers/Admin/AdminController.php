@@ -49,7 +49,7 @@ class AdminController extends Controller
             $menu->add('Портволио', ['route' => 'article.index']);
             $menu->add('Меню', ['route' => 'article.index']);
             $menu->add('Пользователи', ['route' => 'article.index']);
-            $menu->add('Привелегии', ['route' => 'article.index']);
+            $menu->add('Привелегии', ['route' => 'permissions.index']);
         });
     }
 }

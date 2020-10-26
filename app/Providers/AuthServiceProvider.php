@@ -35,5 +35,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('view_admin_articles', function ($user) {
             return $user->canDo('view_admin_articles');
         });
+
+        Gate::define('edit_users', function ($user) {
+            return $user->canDo('edit_users');
+        });
     }
 }

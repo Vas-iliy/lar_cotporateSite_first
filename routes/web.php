@@ -42,6 +42,7 @@ Route::middleware('auth')->prefix('admin/')->group( function () {
     Route::get('/', 'Admin\IndexController@index')->name('adminIndex');
 
     Route::resource('/article', 'Admin\ArticlesController');
+    Route::resource('/permissions', 'Admin\PermissionsController');
 });
 
 Route::resource('pif', 'PifController');

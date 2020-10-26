@@ -6,8 +6,6 @@ namespace App\Repositories;
 
 use App\Article;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 
 class ArticlesRepository extends Repository
 {
